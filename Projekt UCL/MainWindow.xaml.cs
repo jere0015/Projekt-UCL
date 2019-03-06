@@ -24,5 +24,11 @@ namespace Projekt_UCL
         {
             InitializeComponent();
         }
+
+        private void OpretPersonTB_Click(object sender, RoutedEventArgs e)
+        {
+            OpretPerson opretPerson = new OpretPerson();
+            opretPerson.Show();
+        }
     }
 }

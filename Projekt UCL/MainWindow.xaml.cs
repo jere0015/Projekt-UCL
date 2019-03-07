@@ -30,5 +30,10 @@ namespace Projekt_UCL
             OpretPerson opretPerson = new OpretPerson();
             opretPerson.Show();
         }
+
+        private void VisPersonerTB_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

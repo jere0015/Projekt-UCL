@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Group Mixing" Margin="317,28,318.6,0" Width="158" FontSize="24" VerticalAlignment="Top"/>
         <Button Name="opretPersonTB" Content="Opret person" HorizontalAlignment="Left" Margin="340,102,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="OpretPersonTB_Click"/>
-        <Button Name="visPersonerTB" Content="Vis personer" HorizontalAlignment="Left" Margin="340,159,0,0" VerticalAlignment="Top" Width="110" Height="35"/>
+        <Button Name="visPersonerTB" Content="Vis personer" HorizontalAlignment="Left" Margin="340,159,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="VisPersonerTB_Click"/>
         <Button Name="opretGruppe" Content="Opret gruppe" HorizontalAlignment="Left" Margin="340,211,0,0" VerticalAlignment="Top" Width="110" Height="35"/>
         <Label Content="Made by J. H. Andersen" HorizontalAlignment="Left" Margin="673,386,0,0" VerticalAlignment="Top" FontSize="10" FontStyle="Italic"/>
 

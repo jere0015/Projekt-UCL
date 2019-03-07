@@ -10,7 +10,7 @@
         <Label Content="Opret Person" Margin="325,44,309.6,337" VerticalAlignment="Center" Height="39" FontSize="24"/>
         <Label Content="Fornavn" HorizontalAlignment="Left" Margin="257,148,0,0" VerticalAlignment="Top" Width="68" FontSize="16"/>
         <Label Content="Køn" HorizontalAlignment="Left" Margin="286,206,0,0" VerticalAlignment="Top" Width="39" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="337,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="fornavnTB" HorizontalAlignment="Left" Height="23" Margin="337,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <RadioButton Name="radioMand" Content="Mand" HorizontalAlignment="Left" Margin="337,216,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <RadioButton Name="radioKvinde" Content="Kvinde" HorizontalAlignment="Left" Margin="403,216,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
         <Button Name="back1" Content="Tilbage" HorizontalAlignment="Left" Margin="233,322,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Back1_Click"/>

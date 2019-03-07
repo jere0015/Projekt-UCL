@@ -31,7 +31,10 @@ namespace Projekt_UCL
 
         private void OpretTB_Click(object sender, RoutedEventArgs e)
         {
+            Controller controller = new Controller();
+            controller.InsertPerson(fornavnTB.Text, radioMand.IsChecked, radioKvinde.IsChecked);
 
+            MessageBoxResult result = MessageBox.Show("Person oprettet", "Bekræftelse");
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

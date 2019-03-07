@@ -24,8 +24,8 @@ namespace Projekt_UCL
                     SqlCommand cmd1 = new SqlCommand("InsertPersonInfo", conn);
                     cmd1.CommandType = CommandType.StoredProcedure;
 
-                    cmd1.Parameters.Add(new SqlParameter("@Navn", person.Fornavn));
-                    cmd1.Parameters.Add(new SqlParameter("@Adresse", person.Køn));
+                    cmd1.Parameters.Add(new SqlParameter("@Fornavn", person.Fornavn));
+                    cmd1.Parameters.Add(new SqlParameter("@Køn", person.Køn));
                     
 
                     cmd1.ExecuteNonQuery();

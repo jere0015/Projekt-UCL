@@ -30,5 +30,11 @@ namespace Projekt_UCL
             OpretPerson opretPerson = new OpretPerson();
             opretPerson.Show();
         }
-    }
+
+        private void OpretGrupper_Click(object sender, RoutedEventArgs e)
+        {
+            OpretGrupper opretGrupper = new OpretGrupper();
+            opretGrupper.Show();
+        }
+    }  
 }

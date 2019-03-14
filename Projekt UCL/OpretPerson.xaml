@@ -8,13 +8,13 @@
         Title="Opret personer" Height="450" Width="800">
     <Grid Background="LightGray">
         <Label Content="Personer" Margin="341,21,293.6,360" VerticalAlignment="Center" Height="39" FontSize="24"/>
-        <Label Content="Fornavn" HorizontalAlignment="Left" Margin="155,108,0,0" VerticalAlignment="Top" Width="68" FontSize="16"/>
-        <Label Content="Køn" HorizontalAlignment="Left" Margin="184,174,0,0" VerticalAlignment="Top" Width="39" FontSize="16"/>
-        <TextBox Name="fornavnTB" HorizontalAlignment="Left" Height="23" Margin="246,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Fornavn" HorizontalAlignment="Left" Margin="165,111,0,0" VerticalAlignment="Top" Width="68" FontSize="16"/>
+        <Label Content="Køn" HorizontalAlignment="Left" Margin="194,178,0,0" VerticalAlignment="Top" Width="39" FontSize="16"/>
+        <TextBox Name="fornavnTB" HorizontalAlignment="Left" Height="23" Margin="256,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
 
-        <Button Name="back1" Content="Tilbage" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="74,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Back1_Click"/>
+        <Button Name="back1" Content="Tilbage" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="90,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Back1_Click"/>
         <Button Name="opretTB" Content="Opret" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="256,254,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="OpretTB_Click"/>
-        <TextBox Name="kønTB" HorizontalAlignment="Left" Height="23" Margin="246,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="kønTB" HorizontalAlignment="Left" Height="23" Margin="256,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
         <ListView Name="listViewTB" FontSize="18" HorizontalAlignment="Left" Height="308" Margin="438,79,0,0" VerticalAlignment="Top" Width="237">
             <ListView.Resources>
                 <Style TargetType="{x:Type GridViewColumnHeader}">

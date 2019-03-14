@@ -23,5 +23,10 @@ namespace Projekt_UCL
         {
             InitializeComponent();
         }
+
+        private void Back3_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

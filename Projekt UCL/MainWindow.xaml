@@ -9,7 +9,7 @@
     <Grid Background="LightGray">
         <Label Content="Group mixing" Margin="208,46,207.6,0" FontSize="24" VerticalAlignment="Top" FontFamily="Segoe UI Black"/>
         <Button Name="opretPersonTB" Content="Personer" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="239,151,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="OpretPersonTB_Click"/>
-        <Button Name="opretGrupper" Content="Opret grupper" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="239,228,0,0" VerticalAlignment="Top" Width="110" Height="35"/>
+        <Button Name="opretGrupper" Content="Opret grupper" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="239,228,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="OpretGrupper_Click"/>
         <Label Content="Jeremy Howard Andersen" HorizontalAlignment="Left" Margin="497,391,0,0" VerticalAlignment="Top" FontSize="7" FontStyle="Italic"/>
         <StackPanel HorizontalAlignment="Left" Height="4" Margin="194,93,0,0" VerticalAlignment="Top" Width="200" Background="Black"/>
         <Label Content="Husk VPN" HorizontalAlignment="Left" Margin="268,364,0,0" VerticalAlignment="Top" FontSize="10"/>

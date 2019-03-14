@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,10 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Projekt_UCL.DatabaseController;
+
 
 namespace Projekt_UCL
 {
@@ -19,11 +23,13 @@ namespace Projekt_UCL
     /// </summary>
     public partial class OpretPerson : Window
     {
+        DatabaseController databaseController = new DatabaseController();
         public OpretPerson()
         {
             InitializeComponent();
+            databaseController.GetPerson(this);
         }
-        string Gender;
+        
         private void Back1_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -31,20 +37,57 @@ namespace Projekt_UCL
 
         private void OpretTB_Click(object sender, RoutedEventArgs e)
         {
-            Controller controller = new Controller();
-            controller.InsertPerson(fornavnTB.Text, radioMand.IsChecked, radioKvinde.IsChecked);
+            databaseController.InsertPerson(fornavnTB.Text, kønTB.Text);
+            listViewTB.Items.Add(new Person
+            {
+                Fornavn = fornavnTB.Text,
+                Køn = kønTB.Text
+            });
 
-            MessageBoxResult result = MessageBox.Show("Person oprettet", "Bekræftelse");
+            fornavnTB.Text = "";
+            kønTB.Text = "";
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void SletTB_Click(object sender, RoutedEventArgs e)
         {
-            Gender = "Mand";
+            try
+            {
+                Person person = (Person)listViewTB.SelectedItems[0];
+                databaseController.DeletePerson(person.Fornavn);
+                listViewTB.Items.RemoveAt(listViewTB.SelectedIndex);
+            }
+            catch (System.ArgumentOutOfRangeException) { }
         }
 
-        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        GridViewColumnHeader lastHeaderClicked = null; 
+        ListSortDirection lastDirection = ListSortDirection.Ascending;
+
+        private void NameHeader_Click(object sender, RoutedEventArgs e)
         {
-            Gender = "Kvinde";
+            GridViewColumnHeader column = (sender as GridViewColumnHeader);
+            ListSortDirection direction;
+            if (column != lastHeaderClicked)
+            {
+                direction = ListSortDirection.Ascending;
+            }
+            else
+            {
+                if (lastDirection == ListSortDirection.Ascending)
+                {
+                    direction = ListSortDirection.Descending;
+                }
+                else
+                {
+                    direction = ListSortDirection.Ascending;
+                }
+            }
+
+            string header = column.Tag.ToString();
+            listViewTB.Items.SortDescriptions.Clear();
+            listViewTB.Items.SortDescriptions.Add(new SortDescription(header, direction));
+
+            lastDirection = direction;
+            lastHeaderClicked = column;
         }
     }
-}
+} 

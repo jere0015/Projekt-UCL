@@ -9,6 +9,6 @@ namespace Projekt_UCL
     public class Person
     {
         public string Fornavn { get; set; }
-        public object Køn { get; set; }
+        public string Køn { get; set; }
     }
 }

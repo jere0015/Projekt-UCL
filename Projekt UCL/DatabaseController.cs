@@ -3,39 +3,97 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace Projekt_UCL
 {
-    class DatabaseController
+    public class DatabaseController
     {
         private static string connectionString =
        "Server = ealSQL1.eal.local; Database = A_DB08_2018; User Id = A_STUDENT08; Password = A_OPENDB08;";
 
-        public void InsertPerson(Person person)
+        public void InsertPerson(string Fornavn, string Køn)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
-                    conn.Open();
+                    connection.Open();
 
-                    SqlCommand cmd1 = new SqlCommand("InsertPersonInfo", conn);
-                    cmd1.CommandType = CommandType.StoredProcedure;
+                    SqlCommand AddPerson = new SqlCommand("InsertPersonInfo", connection)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure
+                    };
+                    AddPerson.Parameters.Add(new SqlParameter("@Fornavn", Fornavn));
+                    AddPerson.Parameters.Add(new SqlParameter("@Køn", Køn));
 
-                    cmd1.Parameters.Add(new SqlParameter("@Fornavn", person.Fornavn));
-                    cmd1.Parameters.Add(new SqlParameter("@Køn", person.Køn));
-                    
 
-                    cmd1.ExecuteNonQuery();
+                    AddPerson.ExecuteNonQuery();
                 }
 
                 catch (SqlException e)
                 {
-                    Console.WriteLine("Hovsa: " + e.Message);
+                    Console.WriteLine("Ups: " + e.Message);
                 }
-                
+
+            }
+        }
+
+        public void GetPerson(OpretPerson opretPerson)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand GetPerson = new SqlCommand("GetPerson", connection)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure
+                    };
+
+                    SqlDataReader reader = GetPerson.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            string PersonName = reader["PersonName"].ToString();
+
+                            opretPerson.listViewTB.Items.Add(new Person
+                            {
+                                Fornavn = reader["PersonName"].ToString(),
+                                Køn = reader["PersonKøn"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Ups: " + e.Message);
+                }
+            }
+        }
+
+        public void DeletePerson(string Name)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand DeletePerson = new SqlCommand("DeletePerson", connection)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure
+                    };
+                    DeletePerson.Parameters.Add(new SqlParameter("@Fornavn", Name));
+                    DeletePerson.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Ups: " + e.Message);
+                }
             }
         }
 

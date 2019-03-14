@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Projekt_UCL
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OpretGrupper.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OpretGrupper : Window
     {
-        public MainWindow()
+        public OpretGrupper()
         {
             InitializeComponent();
-        }
-
-        private void OpretPersonTB_Click(object sender, RoutedEventArgs e)
-        {
-            OpretPerson opretPerson = new OpretPerson();
-            opretPerson.Show();
         }
     }
 }

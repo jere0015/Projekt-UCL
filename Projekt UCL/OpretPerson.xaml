@@ -5,16 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_UCL"
         mc:Ignorable="d"
-        Title="OpretPerson" Height="450" Width="800">
-    <Grid>
-        <Label Content="Opret Person" Margin="325,44,309.6,337" VerticalAlignment="Center" Height="39" FontSize="24"/>
-        <Label Content="Fornavn" HorizontalAlignment="Left" Margin="257,148,0,0" VerticalAlignment="Top" Width="68" FontSize="16"/>
-        <Label Content="Køn" HorizontalAlignment="Left" Margin="286,206,0,0" VerticalAlignment="Top" Width="39" FontSize="16"/>
-        <TextBox Name="fornavnTB" HorizontalAlignment="Left" Height="23" Margin="337,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <RadioButton Name="radioMand" Content="Mand" HorizontalAlignment="Left" Margin="337,216,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-        <RadioButton Name="radioKvinde" Content="Kvinde" HorizontalAlignment="Left" Margin="403,216,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
-        <Button Name="back1" Content="Tilbage" HorizontalAlignment="Left" Margin="233,322,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Back1_Click"/>
-        <Button Name="opretTB" Content="Opret" HorizontalAlignment="Left" Margin="450,322,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="OpretTB_Click"/>
+        Title="Opret personer" Height="450" Width="800">
+    <Grid Background="LightGray">
+        <Label Content="Personer" Margin="341,21,293.6,360" VerticalAlignment="Center" Height="39" FontSize="24"/>
+        <Label Content="Fornavn" HorizontalAlignment="Left" Margin="155,108,0,0" VerticalAlignment="Top" Width="68" FontSize="16"/>
+        <Label Content="Køn" HorizontalAlignment="Left" Margin="184,174,0,0" VerticalAlignment="Top" Width="39" FontSize="16"/>
+        <TextBox Name="fornavnTB" HorizontalAlignment="Left" Height="23" Margin="246,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+        <Button Name="back1" Content="Tilbage" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="74,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Back1_Click"/>
+        <Button Name="opretTB" Content="Opret" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="256,254,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="OpretTB_Click"/>
+        <TextBox Name="kønTB" HorizontalAlignment="Left" Height="23" Margin="246,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <ListView Name="listViewTB" FontSize="18" HorizontalAlignment="Left" Height="308" Margin="438,79,0,0" VerticalAlignment="Top" Width="237">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Fornavn}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Name="NameHeader" Click="NameHeader_Click">Fornavn</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Køn}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Name="KønHeader" Click="NameHeader_Click">Køn</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="sletTB" Content="Slet" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="256,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="SletTB_Click"/>
+
 
     </Grid>
 </Window>

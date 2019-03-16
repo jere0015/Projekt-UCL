@@ -27,7 +27,7 @@ namespace Projekt_UCL
             {
                 Person.GetPeople.Clear();
             }
-            DatabaseController.Instance.GetPerson(this);
+            DatabaseController.Instance.GetPeople(this);
         }
 
         private void Back3_Click(object sender, RoutedEventArgs e)
@@ -39,7 +39,15 @@ namespace Projekt_UCL
             try
             {
                 Person person = (Person)listViewTB.SelectedItems[0];
-                DatabaseController.Instance.DeletePerson(person.Fornavn);
+
+                for (int i = 0; i < Person.GetPeople.Count; i++)
+                {
+                    if (person.Fornavn == Person.GetPeople[i].Fornavn)
+                    {
+                        Person.GetPeople.Remove(Person.GetPeople[i]);
+                    }
+                }
+
                 listViewTB.Items.RemoveAt(listViewTB.SelectedIndex);
             }
             catch (System.ArgumentOutOfRangeException) { }

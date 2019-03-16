@@ -55,7 +55,43 @@ namespace Projekt_UCL
             }
         }
 
-        public void GetPerson(Window opretPerson)
+        public void GetPerson(OpretPerson opretPerson)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand GetPerson = new SqlCommand("GetPerson", connection)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure
+                    };
+
+                    SqlDataReader reader = GetPerson.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            string PersonName = reader["Fornavn"].ToString();
+
+                            opretPerson.listViewTB.Items.Add(new Person
+                            {
+                                Fornavn = reader["Fornavn"].ToString(),
+                                Køn = reader["Køn"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Ups: " + e.Message);
+                }
+            }
+        }
+
+        public void GetPeople(OpretGrupper opretPerson)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

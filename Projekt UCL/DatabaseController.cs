@@ -9,6 +9,21 @@ namespace Projekt_UCL
 {
     public class DatabaseController
     {
+        private static DatabaseController databaseController;
+
+        public static DatabaseController Instance
+        {
+            get
+            {
+                if (databaseController == null)
+                {
+                    databaseController = new DatabaseController();
+                }
+                return databaseController;
+            }
+        }
+
+
         private static string connectionString =
        "Server = ealSQL1.eal.local; Database = A_DB08_2018; User Id = A_STUDENT08; Password = A_OPENDB08;";
 

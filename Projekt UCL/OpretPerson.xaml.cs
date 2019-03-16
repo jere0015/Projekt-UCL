@@ -23,11 +23,10 @@ namespace Projekt_UCL
     /// </summary>
     public partial class OpretPerson : Window
     {
-        DatabaseController databaseController = new DatabaseController();
         public OpretPerson()
         {
             InitializeComponent();
-            databaseController.GetPerson(this);
+            DatabaseController.Instance.GetPerson(this);
         }
         
         private void Back1_Click(object sender, RoutedEventArgs e)
@@ -37,7 +36,7 @@ namespace Projekt_UCL
 
         private void OpretTB_Click(object sender, RoutedEventArgs e)
         {
-            databaseController.InsertPerson(fornavnTB.Text, kønTB.Text);
+            DatabaseController.Instance.InsertPerson(fornavnTB.Text, kønTB.Text);
             listViewTB.Items.Add(new Person
             {
                 Fornavn = fornavnTB.Text,
@@ -53,7 +52,7 @@ namespace Projekt_UCL
             try
             {
                 Person person = (Person)listViewTB.SelectedItems[0];
-                databaseController.DeletePerson(person.Fornavn);
+                DatabaseController.Instance.DeletePerson(person.Fornavn);
                 listViewTB.Items.RemoveAt(listViewTB.SelectedIndex);
             }
             catch (System.ArgumentOutOfRangeException) { }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,17 @@ namespace Projekt_UCL
                 Person.GetPeople.Clear();
             }
             DatabaseController.Instance.GetPeople(this);
+
+            string test = AppDomain.CurrentDomain.BaseDirectory.ToString();
+            test += @"\test.txt";
+
+            Test.Text = test;
+            using (FileStream fs = File.Create(@test))
+            {
+                // Add some text to file    
+                Byte[] title = new UTF8Encoding(true).GetBytes("New Text File");
+                fs.Write(title, 0, title.Length);
+            }
         }
 
         private void Back3_Click(object sender, RoutedEventArgs e)

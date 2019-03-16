@@ -30,7 +30,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox Name="Test" HorizontalAlignment="Left" Height="23" Margin="172,121,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Test" HorizontalAlignment="Left" Height="74" Margin="90,111,0,0" TextWrapping="Wrap" Text="Antal personer i hver gruppe" VerticalAlignment="Top" Width="53"/>
 
     </Grid>
 </Window>

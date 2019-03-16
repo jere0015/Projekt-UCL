@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows;
 
 namespace Projekt_UCL
 {
@@ -54,7 +55,7 @@ namespace Projekt_UCL
             }
         }
 
-        public void GetPerson(OpretPerson opretPerson)
+        public void GetPerson(Window opretPerson)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -76,6 +77,12 @@ namespace Projekt_UCL
                             string PersonName = reader["Fornavn"].ToString();
 
                             opretPerson.listViewTB.Items.Add(new Person
+                            {
+                                Fornavn = reader["Fornavn"].ToString(),
+                                Køn = reader["Køn"].ToString()
+                            });
+
+                            Person.GetPeople.Add(new Person
                             {
                                 Fornavn = reader["Fornavn"].ToString(),
                                 Køn = reader["Køn"].ToString()

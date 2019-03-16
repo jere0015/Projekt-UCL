@@ -8,6 +8,20 @@ namespace Projekt_UCL
 {
     public class Person
     {
+        private static List<Person> people;
+
+        public static List<Person> GetPeople
+        {
+            get
+            {
+                if (people == null)
+                {
+                    people = new List<Person>();
+                }
+                return people;
+            }
+        }
+
         public string Fornavn { get; set; }
         public string Køn { get; set; }
     }

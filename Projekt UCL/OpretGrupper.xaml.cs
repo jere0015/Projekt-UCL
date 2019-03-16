@@ -22,6 +22,11 @@ namespace Projekt_UCL
         public OpretGrupper()
         {
             InitializeComponent();
+            if (Person.GetPeople == null)
+            {
+                Person.GetPeople.Clear();
+            }
+            DatabaseController.Instance.GetPerson(this);
         }
 
         private void Back3_Click(object sender, RoutedEventArgs e)

@@ -25,12 +25,12 @@
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Fornavn}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Name="NameHeader" Click="NameHeader_Click">Fornavn</GridViewColumnHeader>
+                            <GridViewColumnHeader Name="NameHeader" Tag="Fornavn" Click="NameHeader_Click">Fornavn</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Køn}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Name="KønHeader" Click="NameHeader_Click">Køn</GridViewColumnHeader>
+                            <GridViewColumnHeader Name="KønHeader" Tag="Køn" Click="NameHeader_Click">Køn</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                 </GridView>

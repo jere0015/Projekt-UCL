@@ -58,12 +58,12 @@ namespace Projekt_UCL
                     {
                         while (reader.Read())
                         {
-                            string PersonName = reader["PersonName"].ToString();
+                            string PersonName = reader["Fornavn"].ToString();
 
                             opretPerson.listViewTB.Items.Add(new Person
                             {
-                                Fornavn = reader["PersonName"].ToString(),
-                                Køn = reader["PersonKøn"].ToString()
+                                Fornavn = reader["Fornavn"].ToString(),
+                                Køn = reader["Køn"].ToString()
                             });
                         }
                     }

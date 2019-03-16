@@ -30,7 +30,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="lavGrupper" Content="Lav grupper" HorizontalAlignment="Left" Margin="256,276,0,0" VerticalAlignment="Top" Width="110" Height="35" Background="WhiteSmoke" IsEnabled="{Binding ElementName=maxAntal,Path=Text.Length}"/>
+        <Button Name="lavGrupper" Content="Lav grupper" HorizontalAlignment="Left" Margin="256,276,0,0" VerticalAlignment="Top" Width="110" Height="35" Background="WhiteSmoke" Click="LavGrupper_Click"/>
         <TextBox Name="maxAntal" HorizontalAlignment="Left" Height="23" Margin="256,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
         <Label Content="Navn på gruppe:" HorizontalAlignment="Left" Margin="147,174,0,0" VerticalAlignment="Top"/>
         <TextBox Name="navnGruppe" HorizontalAlignment="Left" Height="23" Margin="256,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>

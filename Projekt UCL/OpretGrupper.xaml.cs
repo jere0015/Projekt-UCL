@@ -29,17 +29,6 @@ namespace Projekt_UCL
                 Person.GetPeople.Clear();
             }
             DatabaseController.Instance.GetPeople(this);
-
-            string test = AppDomain.CurrentDomain.BaseDirectory.ToString();
-            test += @"\test.txt";
-
-            Test.Text = test;
-            using (FileStream fs = File.Create(@test))
-            {
-                // Add some text to file    
-                Byte[] title = new UTF8Encoding(true).GetBytes("New Text File");
-                fs.Write(title, 0, title.Length);
-            }
         }
 
         private void Back3_Click(object sender, RoutedEventArgs e)
@@ -93,6 +82,54 @@ namespace Projekt_UCL
 
             lastDirection = direction;
             lastHeaderClicked = column;
+        }
+
+        private void LavGrupper_Click(object sender, RoutedEventArgs e)
+        {
+            List<Gruppe> grupper = new List<Gruppe>();
+
+            string location = AppDomain.CurrentDomain.BaseDirectory.ToString();
+            location += @"\";
+            location += navnGruppe.Text;
+            location += ".txt";
+
+            Random random = new Random();
+            int count = Person.GetPeople.Count;
+
+            for (int i = 0; i < Person.GetPeople.Count / int.Parse(maxAntal.Text); i++)
+            {
+                Gruppe gruppe = new Gruppe();
+                grupper.Add(gruppe);
+            }
+
+            while (count > 1)
+            {
+                count--;
+                int k = random.Next(count + 1);
+                Person person = Person.GetPeople[k];
+                Person.GetPeople[k] = Person.GetPeople[count];
+                Person.GetPeople[count] = person;
+            }
+
+            for (int i = 0; i < grupper.Count; i++)
+            {
+                for (int idx = i; idx < Person.GetPeople.Count; idx += grupper.Count)
+                {
+                    grupper[i].People.Add(Person.GetPeople[idx]);
+                }
+            }
+
+            using (StreamWriter sw = File.CreateText(location))
+            {
+                foreach (Gruppe gruppe in grupper)
+                {
+                    foreach (Person person in gruppe.People)
+                    {
+                        sw.WriteLine(person.Fornavn);
+                    }
+                    sw.WriteLine(" ");
+                }
+            }
         }
     }
 }

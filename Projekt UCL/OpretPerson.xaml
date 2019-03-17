@@ -36,7 +36,19 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="sletTB" Content="Slet" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="256,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="SletTB_Click"/>
+        <Button Name="sletTB" Content="Slet" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="256,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="SletTB_Click">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger
+                            Binding="{Binding ElementName=listViewTB, Path=SelectedIndex}"
+                            Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
 
     </Grid>

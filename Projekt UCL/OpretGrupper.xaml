@@ -8,7 +8,19 @@
         Title="Opret grupper" Height="450" Width="800">
     <Grid Background="LightGray">
         <Button Name="back3" Content="Tilbage" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="90,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Back3_Click"/>
-        <Button Name="sletTB" Content="Slet" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="256,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="SletTB_Click"/>
+        <Button Name="sletTB" Content="Slet" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="256,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="SletTB_Click">
+            <Button.Style>
+            <Style>
+                <Style.Triggers>
+                    <DataTrigger
+                            Binding="{Binding ElementName=listViewTB, Path=SelectedIndex}"
+                            Value="-1">
+                        <Setter Property="Button.IsEnabled" Value="False"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            </Button.Style>
+        </Button>
         <ListView Name="listViewTB" FontSize="18" HorizontalAlignment="Left" Height="308" Margin="438,79,0,0" VerticalAlignment="Top" Width="237">
             <ListView.Resources>
                 <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -31,11 +43,14 @@
             </ListView.View>
         </ListView>
         <Button Name="lavGrupper" Content="Lav grupper" HorizontalAlignment="Left" Margin="256,276,0,0" VerticalAlignment="Top" Width="110" Height="35" Background="WhiteSmoke" Click="LavGrupper_Click"/>
+
+
         <TextBox Name="maxAntal" HorizontalAlignment="Left" Height="23" Margin="256,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
         <Label Content="Navn på gruppe:" HorizontalAlignment="Left" Margin="147,174,0,0" VerticalAlignment="Top"/>
         <TextBox Name="navnGruppe" HorizontalAlignment="Left" Height="23" Margin="256,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
         <Label Content="Max antal personer pr. gruppe:" HorizontalAlignment="Left" Margin="72,131,0,0" VerticalAlignment="Top" Width="179"/>
         <Label Content="Grupper" Margin="341,21,293.6,360" VerticalAlignment="Center" Height="39" FontSize="24"/>
+        
 
     </Grid>
 </Window>

@@ -102,6 +102,8 @@ namespace Projekt_UCL
                 grupper.Add(gruppe);
             }
 
+            MessageBox.Show("Udført");
+
             while (count > 1)
             {
                 count--;

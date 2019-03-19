@@ -153,6 +153,11 @@ namespace Projekt_UCL
                 }
             }
 
+            if (File.Exists(location))
+            {
+                File.Delete(location);
+            }
+
             int gruppecount = grupper.Count;
 
             using (StreamWriter sw = File.CreateText(location))

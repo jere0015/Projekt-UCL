@@ -28,7 +28,9 @@ namespace Projekt_UCL
             {
                 Person.GetPeople.Clear();
             }
+            OpretPerson.Count = 0;
             DatabaseController.Instance.GetPeople(this);
+            count2.Content = "Antal: " + OpretPerson.Count;
         }
 
         private void Back3_Click(object sender, RoutedEventArgs e)
@@ -50,6 +52,9 @@ namespace Projekt_UCL
                 }
 
                 listViewTB.Items.RemoveAt(listViewTB.SelectedIndex);
+
+                OpretPerson.Count--;
+                count2.Content = "Antal: " + OpretPerson.Count;
             }
             catch (System.ArgumentOutOfRangeException) { }
         }
@@ -162,6 +167,30 @@ namespace Projekt_UCL
                         sw.WriteLine(" ");
                     }
                 }
+            }
+        }
+
+        private void MaxAntal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (maxAntal.Text == "" || navnGruppe.Text == "")
+            {
+                lavGrupper.IsEnabled = false;
+            }
+            else
+            {
+                lavGrupper.IsEnabled = true;
+            }
+        }
+
+        private void NavnGruppe_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (maxAntal.Text == "" || navnGruppe.Text == "")
+            {
+                lavGrupper.IsEnabled = false;
+            }
+            else
+            {
+                lavGrupper.IsEnabled = true;
             }
         }
     }

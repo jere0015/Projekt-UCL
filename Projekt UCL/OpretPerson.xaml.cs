@@ -25,9 +25,13 @@ namespace Projekt_UCL
         public OpretPerson()
         {
             InitializeComponent();
+            Count = 0;
             DatabaseController.Instance.GetPerson(this);
+            count1.Content = "Antal: " + Count;
         }
         
+        public static int Count { get; set; }
+
         private void Back1_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -53,6 +57,9 @@ namespace Projekt_UCL
             });
 
             fornavnTB.Text = "";
+
+            Count++;
+            count1.Content = "Antal: " + Count;
         }
 
         private void SletTB_Click(object sender, RoutedEventArgs e)
@@ -62,6 +69,9 @@ namespace Projekt_UCL
                 Person person = (Person)listViewTB.SelectedItems[0];
                 DatabaseController.Instance.DeletePerson(person.Fornavn);
                 listViewTB.Items.RemoveAt(listViewTB.SelectedIndex);
+
+                Count--;
+                count1.Content = "Antal: " + Count;
             }
             catch (System.ArgumentOutOfRangeException) { }
         }

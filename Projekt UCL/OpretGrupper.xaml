@@ -42,12 +42,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="lavGrupper" Content="Lav grupper" HorizontalAlignment="Left" Margin="256,276,0,0" VerticalAlignment="Top" Width="110" Height="35" Background="WhiteSmoke" Click="LavGrupper_Click"/>
-        <Label Name="count2"  Content="Antal: 999" HorizontalAlignment="Left" Margin="522,48,0,0" VerticalAlignment="Top"/>
+        <Button Name="lavGrupper" IsEnabled="False" Content="Lav grupper" HorizontalAlignment="Left" Margin="256,276,0,0" VerticalAlignment="Top" Width="110" Height="35" Background="WhiteSmoke" Click="LavGrupper_Click"/>
+        <Label x:Name="count2"  Content="Antal: 999" HorizontalAlignment="Left" Margin="522,48,0,0" VerticalAlignment="Top"/>
 
-        <TextBox Name="maxAntal" HorizontalAlignment="Left" Height="23" Margin="256,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
+        <TextBox Name="maxAntal" HorizontalAlignment="Left" Height="23" Margin="256,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56" TextChanged="MaxAntal_TextChanged"/>
         <Label Content="Navn på gruppe:" HorizontalAlignment="Left" Margin="147,174,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="navnGruppe" HorizontalAlignment="Left" Height="23" Margin="256,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox Name="navnGruppe" HorizontalAlignment="Left" Height="23" Margin="256,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110" TextChanged="NavnGruppe_TextChanged"/>
         <Label Content="Max antal personer pr. gruppe:" HorizontalAlignment="Left" Margin="72,131,0,0" VerticalAlignment="Top" Width="179"/>
         <Label Content="Grupper" Margin="341,21,293.6,360" VerticalAlignment="Center" Height="39" FontSize="24"/>
         

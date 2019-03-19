@@ -81,6 +81,7 @@ namespace Projekt_UCL
                                 Fornavn = reader["Fornavn"].ToString(),
                                 Køn = reader["Køn"].ToString()
                             });
+                            OpretPerson.Count++;
                         }
                     }
                 }
@@ -123,6 +124,7 @@ namespace Projekt_UCL
                                 Fornavn = reader["Fornavn"].ToString(),
                                 Køn = reader["Køn"].ToString()
                             });
+                            OpretPerson.Count++;
                         }
                     }
                 }

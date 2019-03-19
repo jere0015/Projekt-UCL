@@ -35,15 +35,24 @@ namespace Projekt_UCL
 
         private void OpretTB_Click(object sender, RoutedEventArgs e)
         {
-            DatabaseController.Instance.InsertPerson(fornavnTB.Text, kønTB.Text);
+            string køn;
+            if (radioDreng.IsChecked == true)
+            {
+                køn = "Dreng";
+            }
+            else
+            {
+                køn = "Pige";
+            }
+
+            DatabaseController.Instance.InsertPerson(fornavnTB.Text, køn);
             listViewTB.Items.Add(new Person
             {
                 Fornavn = fornavnTB.Text,
-                Køn = kønTB.Text
+                Køn = køn
             });
 
             fornavnTB.Text = "";
-            kønTB.Text = "";
         }
 
         private void SletTB_Click(object sender, RoutedEventArgs e)

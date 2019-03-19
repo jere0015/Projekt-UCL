@@ -20,6 +20,10 @@ namespace Projekt_UCL
                 }
                 return people;
             }
+            set
+            {
+                people = value;
+            }
         }
 
         public string Fornavn { get; set; }

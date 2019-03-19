@@ -24,7 +24,7 @@ namespace Projekt_UCL
         public OpretGrupper()
         {
             InitializeComponent();
-            if (Person.GetPeople == null)
+            if (Person.GetPeople != null)
             {
                 Person.GetPeople.Clear();
             }
@@ -102,6 +102,12 @@ namespace Projekt_UCL
                 grupper.Add(gruppe);
             }
 
+            if (Person.GetPeople.Count % int.Parse(maxAntal.Text) != 0)
+            {
+                Gruppe gruppe = new Gruppe();
+                grupper.Add(gruppe);
+            }
+
             MessageBox.Show("Udført");
 
             while (count > 1)
@@ -113,6 +119,25 @@ namespace Projekt_UCL
                 Person.GetPeople[count] = person;
             }
 
+            List<Person> temp = new List<Person>();
+
+            for (int i = 0; i < Person.GetPeople.Count; i++)
+            {
+                if (Person.GetPeople[i].Køn == "Dreng")
+                {
+                    temp.Add(Person.GetPeople[i]);
+                }
+            }
+
+            for (int i = 0; i < Person.GetPeople.Count; i++)
+            {
+                if (Person.GetPeople[i].Køn == "Pige")
+                {
+                    temp.Add(Person.GetPeople[i]);
+                }
+            }
+            Person.GetPeople = temp;
+
             for (int i = 0; i < grupper.Count; i++)
             {
                 for (int idx = i; idx < Person.GetPeople.Count; idx += grupper.Count)
@@ -121,15 +146,21 @@ namespace Projekt_UCL
                 }
             }
 
+            int gruppecount = grupper.Count;
+
             using (StreamWriter sw = File.CreateText(location))
             {
                 foreach (Gruppe gruppe in grupper)
                 {
+                    gruppecount--;
                     foreach (Person person in gruppe.People)
                     {
                         sw.WriteLine(person.Fornavn);
                     }
-                    sw.WriteLine(" ");
+                    if (gruppecount != 0)
+                    {
+                        sw.WriteLine(" ");
+                    }
                 }
             }
         }

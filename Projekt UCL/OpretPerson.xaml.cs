@@ -49,10 +49,12 @@ namespace Projekt_UCL
                 køn = "Pige";
             }
 
-            DatabaseController.Instance.InsertPerson(fornavnTB.Text, køn);
+            string navn = char.ToUpper(fornavnTB.Text[0]) + fornavnTB.Text.Substring(1);
+
+            DatabaseController.Instance.InsertPerson(navn, køn);
             listViewTB.Items.Add(new Person
             {
-                Fornavn = fornavnTB.Text,
+                Fornavn = navn,
                 Køn = køn
             });
 

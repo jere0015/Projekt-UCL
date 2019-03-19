@@ -10,15 +10,15 @@
         <Button Name="back3" Content="Tilbage" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="90,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Back3_Click"/>
         <Button Name="sletTB" Content="Slet" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="256,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="SletTB_Click">
             <Button.Style>
-            <Style>
-                <Style.Triggers>
-                    <DataTrigger
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger
                             Binding="{Binding ElementName=listViewTB, Path=SelectedIndex}"
                             Value="-1">
-                        <Setter Property="Button.IsEnabled" Value="False"/>
-                    </DataTrigger>
-                </Style.Triggers>
-            </Style>
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
             </Button.Style>
         </Button>
         <ListView Name="listViewTB" FontSize="18" HorizontalAlignment="Left" Height="308" Margin="438,79,0,0" VerticalAlignment="Top" Width="237">
@@ -49,8 +49,9 @@
         <Label Content="Navn på gruppe:" HorizontalAlignment="Left" Margin="147,174,0,0" VerticalAlignment="Top"/>
         <TextBox Name="navnGruppe" HorizontalAlignment="Left" Height="23" Margin="256,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110" TextChanged="NavnGruppe_TextChanged"/>
         <Label Content="Max antal personer pr. gruppe:" HorizontalAlignment="Left" Margin="72,131,0,0" VerticalAlignment="Top" Width="179"/>
-        <Label Content="Grupper" Margin="341,21,293.6,360" VerticalAlignment="Center" Height="39" FontSize="24"/>
-        
+        <Label Content="Grupper" Margin="341,21,293.6,360" VerticalAlignment="Center" Height="39" FontSize="24" FontWeight="Bold"/>
+        <DockPanel HorizontalAlignment="Left" Height="2" LastChildFill="False" Margin="524,72,0,0" VerticalAlignment="Top" Width="60" Background="LightSlateGray"/>
+
 
     </Grid>
 </Window>

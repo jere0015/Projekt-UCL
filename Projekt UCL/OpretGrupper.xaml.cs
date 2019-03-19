@@ -114,6 +114,8 @@ namespace Projekt_UCL
             }
 
             MessageBox.Show("Udført");
+            maxAntal.Text = "";
+            navnGruppe.Text = "";
 
             while (count > 1)
             {

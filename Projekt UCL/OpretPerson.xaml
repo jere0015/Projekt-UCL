@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Opret personer" Height="450" Width="800">
     <Grid Background="LightGray">
-        <Label Content="Personer" Margin="341,21,293.6,360" VerticalAlignment="Center" Height="39" FontSize="24"/>
+        <Label Content="Personer" Margin="341,21,293.6,360" VerticalAlignment="Center" Height="39" FontSize="24" FontWeight="Bold"/>
         <Label Content="Fornavn" HorizontalAlignment="Left" Margin="165,111,0,0" VerticalAlignment="Top" Width="68" FontSize="16"/>
         <Label Content="Køn" HorizontalAlignment="Left" Margin="194,178,0,0" VerticalAlignment="Top" Width="39" FontSize="16"/>
-       
+        <DockPanel HorizontalAlignment="Left" Height="2" LastChildFill="False" Margin="524,72,0,0" VerticalAlignment="Top" Width="60" Background="LightSlateGray"/>
 
         <Button Name="back1" Content="Tilbage" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="90,341,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Back1_Click"/>
        
